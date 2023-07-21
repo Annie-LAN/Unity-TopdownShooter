@@ -11,6 +11,7 @@ public class Enemy : LivingEntity
 
     NavMeshAgent pathFinder;
     Transform target;
+    LivingEntity targetEntity;
     Material skinMaterial;
 
     Color originalColor;
@@ -22,6 +23,8 @@ public class Enemy : LivingEntity
     float myCollisionRadius;
     float targetCollisionRadius;
 
+    bool hasTarget;
+
     // override the base class Start method
     protected override void Start()
     {
@@ -31,28 +34,45 @@ public class Enemy : LivingEntity
         skinMaterial = GetComponent<Renderer>().material;
         originalColor = skinMaterial.color;
 
-        currentState = State.Chasing;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if(GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            currentState = State.Chasing;
+            hasTarget = true;
 
-        myCollisionRadius = GetComponent<CapsuleCollider>().radius;
-        targetCollisionRadius = GetComponent<CapsuleCollider>().radius;
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+            targetEntity = target.GetComponent<LivingEntity>();
+            targetEntity.OnDeath += OnTargetDeath;
 
-        StartCoroutine(UpdatePath());
+            myCollisionRadius = GetComponent<CapsuleCollider>().radius;
+            targetCollisionRadius = GetComponent<CapsuleCollider>().radius;
+
+            StartCoroutine(UpdatePath());
+        }
     }
-    
+
+    void OnTargetDeath()
+    {
+        hasTarget = false;
+        currentState = State.Idle;
+    }
+
+
     void Update()
     {
-        if (Time.time > nextAttackTime)
+        if (hasTarget)
         {
-            // not use 'Distance' method cause it's expensive
-            float sqrDstToTarget = (target.position - transform.position).sqrMagnitude;
-
-            if (sqrDstToTarget < Mathf.Pow(attackDistanceThreshold + myCollisionRadius + targetCollisionRadius, 2))
+            if (Time.time > nextAttackTime)
             {
-                nextAttackTime = Time.time + timeBetweenAttacks;
-                StartCoroutine (Attack());
+                // not use 'Distance' method cause it's expensive
+                float sqrDstToTarget = (target.position - transform.position).sqrMagnitude;
+
+                if (sqrDstToTarget < Mathf.Pow(attackDistanceThreshold + myCollisionRadius + targetCollisionRadius, 2))
+                {
+                    nextAttackTime = Time.time + timeBetweenAttacks;
+                    StartCoroutine(Attack());
+                }
             }
-        }
+        }        
     }
 
     IEnumerator Attack()
@@ -90,7 +110,7 @@ public class Enemy : LivingEntity
     IEnumerator UpdatePath()
     {
         float refreshRate = .25f;
-        while(target != null)
+        while(hasTarget)
         {
             if (currentState == State.Chasing)
             {
