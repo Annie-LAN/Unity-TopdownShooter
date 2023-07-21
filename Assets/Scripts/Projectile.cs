@@ -9,12 +9,13 @@ public class Projectile : MonoBehaviour
     float damage = 1;
 
     float lifetime = 3;
+    float skinWidth = .1f;
 
     private void Start()
     {
         Destroy(gameObject, lifetime);
 
-        // let the bullet hit the first collider if it's overlapping with other objects
+        // let the bullet hit the first collider if it's overlapping with other objects when created
         Collider[] initialCollisions = Physics.OverlapSphere(transform.position, .1f, collisionMask);
         if(initialCollisions.Length > 0)
         {
@@ -38,7 +39,7 @@ public class Projectile : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, moveDistance, collisionMask, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(ray, out hit, moveDistance + skinWidth, collisionMask, QueryTriggerInteraction.Collide))
         {
             OnHitObject(hit);
         }
