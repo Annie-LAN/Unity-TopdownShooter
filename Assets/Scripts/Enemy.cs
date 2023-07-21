@@ -18,6 +18,7 @@ public class Enemy : LivingEntity
 
     float attackDistanceThreshold = .5f;
     float timeBetweenAttacks = 1;
+    float damage = 1;
 
     float nextAttackTime;
     float myCollisionRadius;
@@ -90,9 +91,14 @@ public class Enemy : LivingEntity
         float percent = 0;
 
         skinMaterial.color = Color.red;
-
+        bool hasAppliedDamage = false;
         while(percent < 1)
         {
+            if(percent >= .5f && !hasAppliedDamage)
+            {
+                hasAppliedDamage = true;
+                targetEntity.TakeDamage(damage);
+            }
             percent += Time.deltaTime * attackSpeed;
             // make the enemy go to the attackPosition, then back to original Position
             float interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
