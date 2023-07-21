@@ -8,6 +8,19 @@ public class Projectile : MonoBehaviour
     float speed = 10;
     float damage = 1;
 
+    float lifetime = 3;
+
+    private void Start()
+    {
+        Destroy(gameObject, lifetime);
+
+        // let the bullet hit the first collider if it's overlapping with other objects
+        Collider[] initialCollisions = Physics.OverlapSphere(transform.position, .1f, collisionMask);
+        if(initialCollisions.Length > 0)
+        {
+            OnHitObject(initialCollisions[0]);
+        }
+    }
     public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
@@ -37,6 +50,16 @@ public class Projectile : MonoBehaviour
         if (damageableObject != null)
         {
             damageableObject.TakeHit(damage, hit);
+        }
+        GameObject.Destroy(gameObject);
+    }
+
+    void OnHitObject(Collider c)
+    {
+        IDamageable damageableObject = c.GetComponent<IDamageable>();
+        if (damageableObject != null)
+        {
+            damageableObject.TakeDamage(damage);
         }
         GameObject.Destroy(gameObject);
     }
