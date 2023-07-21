@@ -27,4 +27,12 @@ public class GunController : MonoBehaviour
         // make equippedGun a child of weaponHold so that it moves with the player
         equippedGun.transform.parent = weaponHold;
     }
+
+    public void Shoot()
+    {
+        if (equippedGun != null)
+        {
+            equippedGun.Shoot();
+        }
+    }
 }
