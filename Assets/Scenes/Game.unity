@@ -1677,7 +1677,7 @@ MonoBehaviour:
     timeBetweenSpawns: 1
   - enemyCount: 10
     timeBetweenSpawns: 0.75
-  Enemy: {fileID: 7280040678221397326, guid: bdd540ea64ec99549baae270dafbc027, type: 3}
+  enemy: {fileID: 7280040678221397326, guid: bdd540ea64ec99549baae270dafbc027, type: 3}
 --- !u!4 &110050157
 Transform:
   m_ObjectHideFlags: 0
