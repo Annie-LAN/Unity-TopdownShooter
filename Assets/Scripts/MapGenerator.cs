@@ -86,13 +86,20 @@ public class MapGenerator : MonoBehaviour
                 Vector3 obstaclePosition = CoordToPosition(randomCoord.x, randomCoord.y);
 
                 Transform newObstacle = Instantiate(obstaclePrefab, obstaclePosition + Vector3.up * obstacleHeight/2, Quaternion.identity) as Transform;
-                newObstacle.localScale = new Vector3((1 - outlinePercent) * tileSize, obstacleHeight, (1 - outlinePercent) * tileSize);
                 newObstacle.parent = mapHolder;
+                newObstacle.localScale = new Vector3((1 - outlinePercent) * tileSize, obstacleHeight, (1 - outlinePercent) * tileSize);
+                
+                // set the obstacle material
+                Renderer obstacleRenderer = newObstacle.GetComponent<Renderer>();
+                Material obstacleMaterial = new Material(obstacleRenderer.sharedMaterial);
+                float colorPercent = randomCoord.y / (float)currentMap.mapSize.y;
+                obstacleMaterial.color = Color.Lerp(currentMap.foregroundColor, currentMap.backgroundColor, colorPercent);              
+                obstacleRenderer.sharedMaterial = obstacleMaterial;
             } else
             {
                 obstacleMap[randomCoord.x, randomCoord.y] = false;
                 currentObstacleCount--;
-            }            
+            }
         }
 
         // set the navmesh area
