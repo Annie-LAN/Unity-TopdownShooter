@@ -19,7 +19,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
         TakeDamage(damage);
     }
 
-    public void TakeDamage(float damage) {
+    public void TakeDamage(float damage)
+    {
         health -= damage;
 
         if (health <= 0 && !dead)
@@ -28,10 +29,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
     }
 
+    [ContextMenu("Self Destruct")]
     protected void Die()
     {
         dead = true;
-        if(OnDeath != null)
+        if (OnDeath != null)
         {
             OnDeath();
         }
