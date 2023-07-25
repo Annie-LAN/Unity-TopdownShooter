@@ -43,7 +43,11 @@ public class Player : LivingEntity
         // Weapon input
         if (Input.GetMouseButton(0)) // if left-key is pressed
         {
-            gunController.Shoot();
+            gunController.OnTriggerHold();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            gunController.OnTriggerRelease();
         }
     }
 }
