@@ -12,7 +12,13 @@ public class Gun : MonoBehaviour
 
     public Transform shell;
     public Transform shellEjection;
-    
+    MuzzleFlash muzzleflash;
+
+    private void Start()
+    {
+        muzzleflash = GetComponent<MuzzleFlash>();
+    }
+
     // if don't have this, when using say left-key to shoot, it will only shoot one projectile per frame, which isn't what we want
     float nextShotTime;
     public void Shoot()
@@ -24,6 +30,7 @@ public class Gun : MonoBehaviour
             newProjectile.SetSpeed(muzzleVelocity);
 
             Instantiate(shell, shellEjection.position, shellEjection.rotation);
+            muzzleflash.Activate();
         }        
     }
 }
