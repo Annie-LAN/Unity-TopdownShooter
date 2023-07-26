@@ -57,6 +57,12 @@ public class Gun : MonoBehaviour
             muzzleflash.Activate();
         }
     }
+
+    public void Aim(Vector3 aimPoint)
+    {
+        transform.LookAt(aimPoint);
+    }
+
     public void OnTriggerHold()
     {
         Shoot();
