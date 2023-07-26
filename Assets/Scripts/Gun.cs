@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     public enum FireMode {Auto, Burst, Single};
     public FireMode fireMode;
 
-    public Transform muzzle;
+    public Transform[] projectileSpawn;
     public Projectile projectile;
     public float msBetweenShots = 100;
     // velocity that the projectile leaves the gun
@@ -48,13 +48,14 @@ public class Gun : MonoBehaviour
                 }
             }
 
-            nextShotTime = Time.time + msBetweenShots / 1000;
-            Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation) as Projectile;
-            newProjectile.SetSpeed(muzzleVelocity);
-
+            for(int i = 0; i < projectileSpawn.Length; i++) {
+                nextShotTime = Time.time + msBetweenShots / 1000;
+                Projectile newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
+                newProjectile.SetSpeed(muzzleVelocity);                
+            }
             Instantiate(shell, shellEjection.position, shellEjection.rotation);
             muzzleflash.Activate();
-        }        
+        }
     }
     public void OnTriggerHold()
     {
