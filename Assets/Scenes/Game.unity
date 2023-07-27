@@ -2126,7 +2126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHold: {fileID: 1247063104}
-  startingGun: {fileID: 9178919661585409207, guid: 7e38707cf3ae7cc44bf966cc1fbd6fdc, type: 3}
+  allGuns:
+  - {fileID: 8429780938671946202, guid: f9a148f366a8b84458d0016a06191d1c, type: 3}
+  - {fileID: 8264097814810907508, guid: f6079709880a9394aa38aed6a16a8fff, type: 3}
+  - {fileID: 3159176037114856968, guid: fbac8eea556cf3a4b8414916c9896cb9, type: 3}
+  - {fileID: 4804776647579962609, guid: 9fe07e7fcf22dc24a90e59e6447759b6, type: 3}
+  - {fileID: -4921854336958469613, guid: bd695eb85a62bb04f9c2253486998936, type: 3}
 --- !u!1 &303874210
 GameObject:
   m_ObjectHideFlags: 0

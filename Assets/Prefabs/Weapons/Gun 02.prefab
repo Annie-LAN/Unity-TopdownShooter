@@ -545,8 +545,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468430}
-  - component: {fileID: 11475382}
-  - component: {fileID: 8769418201002085551}
+  - component: {fileID: 8264097814810907508}
+  - component: {fileID: 2980942695815491623}
   m_Layer: 0
   m_Name: Gun 02
   m_TagString: Untagged
@@ -573,7 +573,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11475382
+--- !u!114 &8264097814810907508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -592,7 +592,7 @@ MonoBehaviour:
   msBetweenShots: 100
   muzzleVelocity: 25
   burstCount: 3
-  projectilePerMag: 0
+  projectilePerMag: 12
   reloadTime: 0.3
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
@@ -600,7 +600,7 @@ MonoBehaviour:
   recoilRotationSettleTime: 0.1
   shell: {fileID: 5708292095655882421, guid: 52da5bf6f651d8d489a1ad68e240fb9b, type: 3}
   shellEjection: {fileID: 463886}
---- !u!114 &8769418201002085551
+--- !u!114 &2980942695815491623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,15 +612,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b16e862e1e7e24f9ff76d584e6198f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashHolder: {fileID: 6053347727617882211, guid: f9a148f366a8b84458d0016a06191d1c, type: 3}
+  flashHolder: {fileID: 180110}
   flashSprites:
   - {fileID: -247535836, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
   - {fileID: 609284249, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
   - {fileID: -796181596, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
   - {fileID: -1857949990, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
   spriteRenderers:
-  - {fileID: 4080088750304051964, guid: f9a148f366a8b84458d0016a06191d1c, type: 3}
-  - {fileID: 8876432197961652208, guid: f9a148f366a8b84458d0016a06191d1c, type: 3}
+  - {fileID: 21294998}
+  - {fileID: 21248412}
   flashTime: 0.05
 --- !u!1 &165506
 GameObject:

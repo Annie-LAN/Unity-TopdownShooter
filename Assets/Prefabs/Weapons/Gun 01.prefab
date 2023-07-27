@@ -429,7 +429,7 @@ MonoBehaviour:
   projectile: {fileID: -2740118486492141989, guid: b8a53e59f5e35f74b9380b564eef4cec, type: 3}
   msBetweenShots: 100
   muzzleVelocity: 20
-  burstCount: 4
+  burstCount: -1
   projectilePerMag: 12
   reloadTime: 0.3
   kickMinMax: {x: 0.05, y: 0.2}
@@ -533,7 +533,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -247535836, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
+  m_Sprite: {fileID: 609284249, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -716,7 +716,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -247535836, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
+  m_Sprite: {fileID: 609284249, guid: 96b5bf7732f887e4bbff84c48c12d7b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
