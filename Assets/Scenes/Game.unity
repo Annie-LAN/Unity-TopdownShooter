@@ -1983,7 +1983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  moveSpeed: 5
+  moveSpeed: 6
   crosshairs: {fileID: 1821723718}
 --- !u!114 &303370583
 MonoBehaviour:
