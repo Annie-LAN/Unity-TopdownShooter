@@ -393,6 +393,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69263352}
   m_CullTransparentMesh: 1
+--- !u!1001 &141730802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4349416965836031633, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 185.43948
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 194.89488
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.170312
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341712496878448757, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 296b5d07643bad64b8cf69ef3f142314, type: 3}
 --- !u!1 &226174930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1188,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 40
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2056,7 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuHolder: {fileID: 639058723}
-  optionMenuHolder: {fileID: 1572649366}
+  optionsMenuHolder: {fileID: 1572649366}
   volumeSliders:
   - {fileID: 1513773768}
   - {fileID: 1790533705}
@@ -2065,6 +2126,7 @@ MonoBehaviour:
   - {fileID: 1115020379}
   - {fileID: 22113566}
   - {fileID: 939086703}
+  fullscreenToggle: {fileID: 1891934002}
   screenWidths: c00300000005000080070000
 --- !u!1 &804703933
 GameObject:
@@ -2287,7 +2349,6 @@ GameObject:
   m_Component:
   - component: {fileID: 835929079}
   - component: {fileID: 835929078}
-  - component: {fileID: 835929077}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2295,14 +2356,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &835929077
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835929076}
-  m_Enabled: 1
 --- !u!20 &835929078
 Camera:
   m_ObjectHideFlags: 0
@@ -3904,7 +3957,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 20
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4634,7 +4687,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 40
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
