@@ -1,19 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public enum AudioChannel {Master, Sfx, Music};
 
-    public float masterVolumePercent { get; private set; }
-    public float sfxVolumePercent { get; private set; }
-    public float musicVolumePercent { get; private set; }
-    int activeMusicSourceIndex;
+    public float masterVolumePercent { get; private set; } = .2f;
+    public float sfxVolumePercent { get; private set; } = 1;
+    public float musicVolumePercent { get; private set; } = 1;
 
     AudioSource sfx2DSource;
     AudioSource[] musicSources;
+    int activeMusicSourceIndex;
 
     public static AudioManager instance;
 
@@ -53,7 +51,7 @@ public class AudioManager : MonoBehaviour
             if(FindObjectOfType<Player>()!= null)
             {
                 playerT = FindObjectOfType<Player>().transform;
-            }
+            }            
 
             masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
             sfxVolumePercent = PlayerPrefs.GetFloat("sfx vol", 1);
