@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -48,14 +49,26 @@ public class AudioManager : MonoBehaviour
             newSfx2Dsource.transform.parent = transform;
 
             audioListener = FindObjectOfType<AudioListener>().transform;
-            if(FindObjectOfType<Player>()!= null)
-            {
-                playerT = FindObjectOfType<Player>().transform;
-            }            
+
+            // 7/28 fixed the bug of sfx not showing using delegate SceneManager.sceneLoaded
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            // code in the original video is the following:
+                //if(FindObjectOfType<Player>()!= null)
+                //{
+                //    playerT = FindObjectOfType<Player>().transform;
+                //}
 
             masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
             sfxVolumePercent = PlayerPrefs.GetFloat("sfx vol", 1);
             musicVolumePercent = PlayerPrefs.GetFloat("music vol", 1);
+        }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {       
+        if (scene.name == "Game")
+        {
+            playerT = FindObjectOfType<Player>().transform;            
         }
     }
 
