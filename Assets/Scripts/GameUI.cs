@@ -14,6 +14,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI newWaveTitle;
     public TextMeshProUGUI newWaveEnemyCount;
     public TextMeshProUGUI scoreUI;
+    public TextMeshProUGUI gameOverScoreUI;
     public RectTransform healthBar;
 
     Spawner spawner;
@@ -78,7 +79,11 @@ public class GameUI : MonoBehaviour
 
     void OnGameOver()
     {
-        StartCoroutine(Fade(Color.clear, Color.black, 1));
+        Cursor.visible = true;
+        StartCoroutine(Fade(Color.clear, new Color(0,0,0, .95f), 1));
+        gameOverScoreUI.text = scoreUI.text;
+        scoreUI.gameObject.SetActive(false);
+        healthBar.transform.parent.gameObject.SetActive(false);
         gameOverUI.SetActive(true);
     }
 
@@ -99,5 +104,10 @@ public class GameUI : MonoBehaviour
     public void StartNewGame()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void returnToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
