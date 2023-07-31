@@ -1,11 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
-using Unity.VisualScripting;
-using UnityEditor.Timeline;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
