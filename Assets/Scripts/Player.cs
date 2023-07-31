@@ -55,7 +55,13 @@ public class Player : LivingEntity
             if ((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 1)
             {
                 gunController.Aim(point);
-            }            
+            }          
+            
+            // kill the player when falling off the ground
+            if (transform.position.y < -5)
+            {
+                TakeDamage(health);
+            }
         }
 
         // Weapon input
