@@ -71,7 +71,10 @@ public class Enemy : LivingEntity
         }
         startingHealth = enemyHealth;
 
-        skinMaterial = GetComponent<Renderer>().sharedMaterial;
+        ParticleSystem ps = deathEffect.GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule psmain = ps.main;
+        psmain.startColor = new Color(skinColor.r, skinColor.g, skinColor.b, 1);
+        skinMaterial = GetComponent<Renderer>().material;
         skinMaterial.color = skinColor;
         originalColor = skinMaterial.color;
     }
