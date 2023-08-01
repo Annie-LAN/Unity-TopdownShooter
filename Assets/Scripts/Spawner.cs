@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
 
     MapGenerator map;
 
-    float timeBetweenCampingChecks = 2;
+    float timeBetweenCampingChecks = 2.2f;
     float campThresholdDistance = 1.5f;
     float nextCampCheckTime;
     Vector3 campPositionOld;
